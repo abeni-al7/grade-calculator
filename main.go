@@ -41,6 +41,28 @@ func acceptSubject(i int) {
 	subjects[name] = grade
 }
 
+func calculateAverage() float64 {
+	total := 0.0
+	count := 0.0
+	for _, value := range subjects {
+		total += value
+		count += 1.0
+	}
+	return total / count
+}
+
+func showOutput() {
+	fmt.Printf("Hey, %v", name)
+	fmt.Println()
+	fmt.Println("Your scores for all your subjects are displayed below")
+	for name, grade := range subjects {
+		fmt.Printf("%v: %v", name, grade)
+		fmt.Println()
+	}
+	fmt.Printf("As per the above results your average grade is %v", calculateAverage())
+	fmt.Println()
+}
+
 func main() {
 	acceptBasicInfo()
 
@@ -49,5 +71,5 @@ func main() {
 		acceptSubject(i)
 		i++
 	}
-	fmt.Println(subjects)
+	showOutput()
 }
