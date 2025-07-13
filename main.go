@@ -18,6 +18,13 @@ func acceptBasicInfo() {
 	fmt.Scanln(&amountOfSubjects)
 }
 
+func validateGrade(grade float64) bool {
+	if grade >= 0 && grade <= 100 {
+		return true
+	}
+	return false
+}
+
 func acceptSubject(i int) {
 	var name string
 	fmt.Println("Enter the name of Subject", i + 1)
@@ -27,6 +34,10 @@ func acceptSubject(i int) {
 	fmt.Println("What is your grade for", name, "?")
 	fmt.Scanln(&grade)
 
+	for !validateGrade(grade) {
+		fmt.Println("Please enter a valid grade between 0 and 100 (inclusive)")
+		fmt.Scanln(&grade)
+	}
 	subjects[name] = grade
 }
 
