@@ -52,6 +52,7 @@ func calculateAverage() float64 {
 }
 
 func showOutput() {
+	fmt.Println()
 	fmt.Printf("Hey, %v", name)
 	fmt.Println()
 	fmt.Println("Your scores for all your subjects are displayed below")
